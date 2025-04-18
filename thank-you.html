@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>感謝提交 - 星座會員申請</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/backToTop.js"></script>
+    <!-- A/B Testing Script -->
+    <script src="js/ab-testing.js"></script>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans TC", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #fff;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        text-align: center;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .home-link {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+        transition: all 0.3s ease;
+        padding: 12px 24px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      }
+
+      .home-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffd700;
+        transform: translateY(-50%) translateX(5px);
+      }
+
+      .header img {
+        max-width: 400px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #ffd700;
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .content {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        border: 2px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .content p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        background: #ffd700;
+        color: #000;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin-top: 20px;
+      }
+
+      .btn:hover {
+        background: #ffed4a;
+        transform: translateY(-2px);
+      }
+
+      .stars {
+        margin: 30px 0;
+      }
+
+      .stars i {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #ffd700;
+        margin: 0 5px;
+        border-radius: 50%;
+        position: relative;
+        animation: twinkle 1.5s infinite alternate;
+      }
+
+      .stars i:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+
+      .stars i:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      .stars i:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+
+      .stars i:nth-child(5) {
+        animation-delay: 1.2s;
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.3;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 15px;
+        }
+        
+        .content {
+          padding: 20px;
+        }
+        
+        .home-link {
+          position: static;
+          transform: none;
+          display: inline-block;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P9DNN8FM");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P9DNN8FM"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+      <div class="header">
+        <a href="index.html" class="home-link">Home</a>
+        <img src="images/star2.jpg" alt="星座圖案" />
+        <h2>申請成功！</h2>
+      </div>
+
+      <div class="content">
+        <div class="stars">
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <p>感謝您提交星座會員申請！</p>
+        <p>我們已收到您的資料，將會盡快處理您的申請。</p>
+        <p>稍後將有專人透過您提供的電子郵件與您聯繫。</p>
+        <a href="index.html" class="btn">返回首頁</a>
+      </div>
+    </div>
+    
+    <script>
+      // Track conversion completion
+      document.addEventListener("DOMContentLoaded", function() {
+        const variant = localStorage.getItem("navVariant") || "unknown";
+        
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'conversionComplete',
+          'testName': 'nav_layout_test',
+          'testVariant': variant,
+          'formName': 'zodiacForm'
+        });
+      });
+    </script>
+  </body>
+</html>
