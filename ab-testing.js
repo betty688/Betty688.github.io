@@ -1,4 +1,4 @@
-// ab-testing.js
+// ab-testing.js - Updated for GTM integration
 
 // Function to get a random variant or retrieve existing assignment
 function getVariant() {
@@ -9,6 +9,22 @@ function getVariant() {
   if (!variant) {
     variant = Math.random() < 0.5 ? "horizontal" : "vertical";
     localStorage.setItem("navVariant", variant);
+    
+    // Push the variant to dataLayer for GTM
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'abTestAssignment',
+      'abTestName': 'nav_layout_test',
+      'abTestVariant': variant
+    });
+  } else {
+    // Push the stored variant to dataLayer when user returns
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'abTestAssignment',
+      'abTestName': 'nav_layout_test',
+      'abTestVariant': variant
+    });
   }
 
   return variant;
@@ -41,33 +57,14 @@ function applyVariant(variant) {
       document.body.appendChild(toggleBtn);
     }
   }
-
-  // Send the variant info to Google Analytics
-  sendToAnalytics(variant);
 }
 
 // Function to load the vertical navigation CSS
 function loadVerticalNavCSS() {
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "css/vertical-nav.css"; // Path to your vertical nav CSS file
+  link.href = "css/vertical-nav.css";
   document.head.appendChild(link);
-}
-
-// Function to send variant information to Google Analytics
-function sendToAnalytics(variant) {
-  // For Google Analytics 4
-  if (typeof gtag !== "undefined") {
-    gtag("event", "ab_test_impression", {
-      experiment_id: "nav_layout_test",
-      variant_id: variant,
-    });
-  }
-
-  // For Universal Analytics (older version)
-  if (typeof ga !== "undefined") {
-    ga("send", "event", "ABTest", "Navigation", variant);
-  }
 }
 
 // Run the test when the DOM is fully loaded
@@ -82,29 +79,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Apply the variant
   applyVariant(variant);
 
-  // Track clicks on navigation elements
-  document.querySelectorAll("nav a").forEach((link) => {
-    link.addEventListener("click", function () {
-      // For GA4
-      if (typeof gtag !== "undefined") {
-        gtag("event", "nav_click", {
-          experiment_id: "nav_layout_test",
-          variant_id: variant,
-          link_text: this.textContent,
-          link_url: this.href,
-        });
-      }
-
-      // For Universal Analytics
-      if (typeof ga !== "undefined") {
-        ga(
-          "send",
-          "event",
-          "Navigation",
-          "Click",
-          variant + " - " + this.textContent
-        );
-      }
+  // Track clicks on navigation elements via GTM
+  document.querySelectorAll(".horizontal-menu a, .vertical-menu a").forEach((link) => {
+    link.addEventListener("click", function(e) {
+      // Push navigation click event to dataLayer
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'navClick',
+        'navTestVariant': variant,
+        'linkText': this.textContent.trim(),
+        'linkUrl': this.href
+      });
     });
   });
 });
