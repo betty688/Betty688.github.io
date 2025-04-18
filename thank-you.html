@@ -209,20 +209,5 @@
         <a href="index.html" class="btn">返回首頁</a>
       </div>
     </div>
-
-    <script>
-      // Track conversion completion
-      document.addEventListener("DOMContentLoaded", function () {
-        const variant = localStorage.getItem("formVariant") || "unknown";
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "conversionComplete",
-          testName: "nav_layout_test",
-          testVariant: variant,
-          formName: "zodiacForm",
-        });
-      });
-    </script>
   </body>
 </html>
