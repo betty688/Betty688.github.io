@@ -263,16 +263,6 @@
           document.getElementById("bEmail").focus();
           return false;
         } else {
-          // Track form submission in dataLayer (replacing Matomo tracking)
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event': 'formSubmission',
-            'testName': 'nav_layout_test',
-            'testVariant': localStorage.getItem("navVariant") || "unknown",
-            'formName': 'zodiacForm',
-            'conversionValue': 1
-          });
-          
           // Allow 300ms for tracking to fire before redirecting
           setTimeout(function() {
             window.location.href = "thank-you.html";
@@ -282,18 +272,6 @@
         }
       }
       
-      // Track form views when page loads
-      document.addEventListener("DOMContentLoaded", function() {
-        const variant = localStorage.getItem("navVariant") || "unknown";
-        
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          'event': 'formView',
-          'testName': 'nav_layout_test',
-          'testVariant': variant,
-          'formName': 'zodiacForm'
-        });
-      });
     </script>
     <script>
       (function (w, d, s, l, i) {
