@@ -264,14 +264,13 @@
           return false;
         } else {
           // Allow 300ms for tracking to fire before redirecting
-          setTimeout(function() {
+          setTimeout(function () {
             window.location.href = "thank-you.html";
           }, 300);
-          
+
           return false; // Prevent default form submission
         }
       }
-      
     </script>
     <script>
       (function (w, d, s, l, i) {

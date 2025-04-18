@@ -156,11 +156,11 @@
         .container {
           padding: 15px;
         }
-        
+
         .content {
           padding: 20px;
         }
-        
+
         .home-link {
           position: static;
           transform: none;
@@ -202,27 +202,25 @@
       </div>
 
       <div class="content">
-        <div class="stars">
-          <i></i><i></i><i></i><i></i><i></i>
-        </div>
+        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
         <p>感謝您提交星座會員申請！</p>
         <p>我們已收到您的資料，將會盡快處理您的申請。</p>
         <p>稍後將有專人透過您提供的電子郵件與您聯繫。</p>
         <a href="index.html" class="btn">返回首頁</a>
       </div>
     </div>
-    
+
     <script>
       // Track conversion completion
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const variant = localStorage.getItem("navVariant") || "unknown";
-        
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          'event': 'conversionComplete',
-          'testName': 'nav_layout_test',
-          'testVariant': variant,
-          'formName': 'zodiacForm'
+          event: "conversionComplete",
+          testName: "nav_layout_test",
+          testVariant: variant,
+          formName: "zodiacForm",
         });
       });
     </script>
